@@ -8,10 +8,10 @@ public static void main( String [] args) {
 		
 		Scanner sc = new Scanner (System.in);
 		
-		double temperatura [] = new double [121];
+		double temperatura [] = new double [5];
 		double maiorTemp = 0, menorTemp= 0, media=0;
 		
-		for ( int contador = 0; contador <121; contador++ ) {
+		for ( int contador = 0; contador <5; contador++ ) {
 		
 		System.out.println(" digite qual é a temperatura: ");
 		temperatura [contador] = sc.nextDouble();
@@ -29,8 +29,8 @@ public static void main( String [] args) {
 			menorTemp = temperatura [contador];	
 			}
 		} 
-		for ( int contador1 = 0 ; contador1 <121; contador1++)
-		media = (temperatura[contador1] + temperatura [contador1])/121;
+		for ( int contador1 = 0 ; contador1 <5; contador1++)
+		media = (temperatura[contador1] + temperatura [contador1])/5;
 		
 		System.out.println(" a maior temperatura resgistrada foi: "+ maiorTemp);
 		System.out.println(" a menor temperatura resgistrada foi: "+ menorTemp);
