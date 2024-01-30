@@ -6,12 +6,12 @@ public class lojaVirtual {
 	public static void main(String [] args) {
 		Scanner sc = new Scanner (System.in);
 		
-		int categorias, compra, cadastro, senha,  result;   
+		int categorias, compra, cadastro, senhaLogin,  result;   
 		byte eletronicos, materialEscolar; 
 		byte roupas, acessorios; 
-		String nome, email, CPF, telefone, sobrenome;
+		String nome, email, CPF, telefone, senha, sobrenome;
 		int dia, mes, ano;
-		boolean verificaNumero = false, verificaCPF = false, verificaEmail = false;
+		boolean verificaNumero = false, verificaCPF = false, verificaEmail = false, verificaSenha = false;
 		
 		System.out.println(" Digite a categoia que você deseja pequisar: \n"
 				+ "\n 	1 - Eletrônico  "
@@ -37,9 +37,8 @@ public class lojaVirtual {
 								+ "\n Tipo de alto-falante   	           Tweeter"
 								+ "\n Tecnologia de conectividade	           Bluetooth, USB "
 								+ "\n Características especiais	           Porta USB, À prova d'água "
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não ");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras? 1- sim, 2- não ");
 						compra = sc.nextInt(); 
-						result = login (compra);
 						
 					break; 
 						
@@ -51,7 +50,7 @@ public class lojaVirtual {
 								+ "\n Cor	                                        AZUL"
 								+ "\n Fator de forma dos fones de ouvido	        Sobre a orelha"
 								+ "\n Tecnologia de conectividade             	Sem fio"
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não");
 						compra = sc.nextInt(); 
 				} break; 
 				
@@ -69,7 +68,7 @@ public class lojaVirtual {
 								+ "\n - SEM Bojo "
 								+ "\n - Veste do 36 ate 42 "
 								+ "\n - Medida - Altura: 41 cm "
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não ");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não ");
 						compra = sc.nextInt();
 						break; 
 						
@@ -85,7 +84,7 @@ public class lojaVirtual {
 								+ "\n - Material:	       Jeans "
 								+ "\n - Composição:	       100% Algodão "
 								+ "\n - Translúcido:	       Não"
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não ");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não ");
 						compra = sc.nextInt();
 				} break; 
 				
@@ -102,7 +101,7 @@ public class lojaVirtual {
 								+ "\n\n - Cor:	        Multicolorido "
 								+ "\n - Material:	Liga de ferro "
 								+ "\n - tamanho:     único "
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não");
 						compra = sc.nextInt();
 						break; 
 						
@@ -112,7 +111,7 @@ public class lojaVirtual {
 								+ "\n\n - Tamanho da corrente: 45cm "
 								+ "\n - Bolsa de veludo incluída "
 								+ "\n - Tamanho do pingente: 1 cm * 1 cm "
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não");
 						compra = sc.nextInt();
 				} break; 
 				
@@ -130,7 +129,7 @@ public class lojaVirtual {
 								+ "\n\n - Fabricante:	        Fengzengmei	"
 								+ "\n - Tipo de material:	‎Plástico"
 								+ "\n - Tipo de ponta:	‎Super Fine"
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não");
 						compra = sc.nextInt();
 						break; 
 						
@@ -140,7 +139,7 @@ public class lojaVirtual {
 								+ "\n\n - Régua 30cm Transparente "
 								+ "\n - Material: Acrilico "
 								+ "\n - Marca: Acrinil "
-								+ "\n\n deseja comprar esse produto? 1- sim, 2- não");
+								+ "\n\n Deseja adicionar esse produto no carrinho de compras ? 1- sim, 2- não");
 						compra = sc.nextInt();
 						
 				} break; 		
@@ -156,39 +155,39 @@ public class lojaVirtual {
 				System.out.println(" Digite o seu nome: ");
 				nome = sc.next();
 				System.out.println(" Digite sua senha: ");
-				senha = sc.nextInt(); 
+				senhaLogin = sc.nextInt(); 
 				
 				break;
 				
 			case 2: 
 				System.out.println(" Vamos começar o seu cadastro! ");
-				System.out.println(" Digite o seu nome ");
+				System.out.println(" Digite o seu nome: ");
 					nome = sc.next();
-				System.out.println(" Digite seu sobrenome: ");
+				System.out.println("\n Digite seu sobrenome: ");
 					sobrenome = sc.next();
-				System.out.println("insira sua data de nascimento (dividindo por 'enter')");
+				System.out.println("\n insira sua data de nascimento (dividindo por 'enter'): ");
 			        dia = sc.nextInt(); mes = sc.nextInt(); ano = sc.nextInt();  
 				
 				  do {
-		              	System.out.println("Insira seu número para contato: ");
+		              	System.out.println("\n Insira seu número para contato: ");
 		                	telefone = sc.next();
 		                if(telefone.length()==11) {
 		                    verificaNumero = true;
 		                } else { 
 		                	verificaNumero = false;
-		                		System.out.println("número inválido tente novamente.");
+		                		System.out.println("\n número inválido tente novamente.");
 		                }
 		                
 		            } while(verificaNumero != true);
 		            
 		            do {
-		                System.out.println("Insira seu email: ");
+		                System.out.println("\n Insira seu email: ");
 		                	email = sc.next();
 		                if(email.length()>=11) {
 		                    verificaEmail = true;
 		                } else {
 		                    verificaEmail = false;
-		                    	System.out.println("email inválido tente novamente.");
+		                    	System.out.println("\n email inválido tente novamente.");
 		                }
 		                
 		            } while(verificaEmail != true);
@@ -202,17 +201,25 @@ public class lojaVirtual {
 		                    verificaCPF = false;
 		                    	System.out.println("CPF inválido tente novamente.");
 		                }
+		                
+		            } while(verificaCPF != true);
+		            
+		            do {
+		                System.out.println("Insira uma senha de 7 digitos: ");
+		                	senha = sc.next();
+		                if(senha.length()==11) {
+		                    verificaSenha = true;
+		                } else {
+		                    verificaSenha = false;
+		                    	System.out.println(" Senha inválida tente novamente.");
+		                }
+		                
 		            } while(verificaCPF != true);
 		            
 		            System.out.println("Você foi cadastrado com sucesso!");
 		        }
 		        
-		    }
-
-	private static int login (int compra) {
-		// TODO Auto-generated method stub
-		
-		return compra;
-	}
-
+	  }
 }
+
+
