@@ -267,7 +267,7 @@ public class lojaVirtual {
 			Scanner sc = new Scanner (System.in);
 			int pagamento, parcelado;
 			String senha; 
-			boolean verificaSenha;
+			boolean verificaSenha = false;
 			
 			if ( formaPagamento == 1 ) {
 				System.out.println(" O total da sua compra é: "+ totalCarrinho );
@@ -375,15 +375,21 @@ public class lojaVirtual {
 				} 
 			
 			if ( formaPagamento == 3) {
-				
-				
-			}
+				System.out.println(" O total da compra é: R$"+ totalCarrinho);
+				 do {
+		                System.out.println("\n Pode incerir a senha: ");
+		                	senha = sc.next();
+		                if(senha.length()==4) {
+		                    verificaSenha = true;
+		                } else {
+		                    verificaSenha = false;
+		                    	System.out.println(" Senha inválida tente novamente.");
+		                }
+		                
+		            	} while(verificaSenha != true);
+					
+					} System.out.println("\n Pagamento bem sucedido. Obrigada pela preferência! ");
 			
-			
-			
-			
-			return formaPagamento; 
-	}	
-}
-
-
+					return formaPagamento; 
+			}	
+		}
