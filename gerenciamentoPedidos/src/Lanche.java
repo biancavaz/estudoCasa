@@ -3,7 +3,7 @@ public class Lanche extends Produto  {
 
     private double peso;
 
-    public Lanche(double peso, int id, String descricao, double preco {
+    public Lanche(double peso, int id, String descricao, double preco ) {
         super(id, descricao, preco);
         this.peso = peso;
     }
