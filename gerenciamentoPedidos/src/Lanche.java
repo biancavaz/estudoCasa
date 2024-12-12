@@ -16,7 +16,8 @@ public class Lanche extends Produto  {
 
     @Override
     public String exibirDetalhes() {
-        return "Lanche: " +
-                "\nPeso:" + peso;
+        return "\nLanche: " + super.toString()+
+                "\nPeso:" + peso + "\n";
     }
+
 }

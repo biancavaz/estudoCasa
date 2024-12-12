@@ -4,7 +4,6 @@ public class Cliente extends Pessoa {
 
     ArrayList<Pedido> pedidos = new ArrayList<>();
 
-
     public ArrayList<Pedido> getPedidos() {
         return this.pedidos;
     }
