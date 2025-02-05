@@ -34,6 +34,7 @@ public class Main {
     }
 
     public static void exibirMenu(int opcao){
+        //terminar com do/while
         switch (opcao) {
             case 1: {
                 opcoesHospedes();
@@ -65,7 +66,7 @@ public class Main {
     public static void exibirOpcoesHospedes(int opcao) {
         switch (opcao){
             case 1: {
-
+                cadastroHospedes();
                 break;
             }
             case 2: {
@@ -80,7 +81,7 @@ public class Main {
         }
     }
 
-    public static void CadastroHospedes() {
+    public static void cadastroHospedes() {
         System.out.println("CADASTRO DE HOSPEDES");
 
         System.out.println("Nome: ");
@@ -92,7 +93,12 @@ public class Main {
         System.out.println("Telefone: ");
         hospedes.setTelefone(sc.next());
 
-        GerenciadorHospedes.adicionarHospedes(hospedes);
+        GerenciadorHotel.adicionarHospedes(hospedes);
+    }
+
+
+    public static void removerHospedes() {
+
     }
 
     //fazer a lógica do de remover hóspede
