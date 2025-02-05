@@ -1,8 +1,14 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Quarto {
 
     private int numero;
     private String tipo;
     private double precoDiaria;
+    private boolean disponivel;
+    private List<Reserva> reservas = new ArrayList();
 
     public Quarto(int numero, String tipo, double precoDiaria) {
         this.numero = numero;
@@ -16,9 +22,24 @@ public class Quarto {
         System.out.println(this.toString());
     }
 
+    public boolean reservar(LocalDate dataEntrada, LocalDate dataSaida ){
+        for (Reserva reserva : reservas){
+            if(dataEntrada.isBefore(reserva.getDataSaida()) && dataSaida.isAfter(reserva.getDataEntrada()) ||
+                    (dataEntrada.isEqual(reserva.getDataEntrada())) || (dataSaida.isEqual(reserva.getDataSaida()))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void reservar(Reserva reserva) {
+        reservas.add(reserva);
+    }
+
     @Override
     public String toString() {
         return "Quarto: " +
+                "disponivel: " + (disponivel? "sim" : "não") +
                 "\nnumero: " + numero +
                 "\ntipo: " + tipo +
                 "\nprecoDiaria: " + precoDiaria;
@@ -46,5 +67,13 @@ public class Quarto {
 
     public void setPrecoDiaria(double precoDiaria) {
         this.precoDiaria = precoDiaria;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 }

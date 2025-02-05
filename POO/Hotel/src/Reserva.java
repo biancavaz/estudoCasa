@@ -8,9 +8,14 @@ public class Reserva {
     private Hospedes hospedes;
     private Quarto quarto;
 
-    public Reserva(int dataEntrada, int dataSaida, Hospedes hospedes, Quarto quarto) {
-        this.dataEntrada = LocalDate.ofEpochDay(dataEntrada);
-        this.dataSaida = LocalDate.ofEpochDay(dataSaida);
+    public Reserva(LocalDate dataEntrada, LocalDate dataSaida, Hospedes hospedes, Quarto quarto) {
+        this.dataEntrada = dataEntrada;
+        this.dataSaida =  dataSaida;
+        this.hospedes = hospedes;
+        this.quarto = quarto;
+    }
+
+    public Reserva (Hospedes hospedes, Quarto quarto) {
         this.hospedes = hospedes;
         this.quarto = quarto;
     }
@@ -24,6 +29,22 @@ public class Reserva {
 
     public void exibirDetalhes(){
         System.out.println(this.toString());
+    }
+
+    public LocalDate getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(LocalDate dataSaida) {
+        this.dataSaida = dataSaida;
+    }
+
+    public LocalDate getDataEntrada() {
+        return dataEntrada;
+    }
+
+    public void setDataEntrada(LocalDate dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
     @Override
