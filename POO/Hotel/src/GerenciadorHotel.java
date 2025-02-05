@@ -64,9 +64,12 @@ public class GerenciadorHotel {
         }
     }
 
+    public static void buscarQuarto(){}
+
     //RESERVAS
     public static void adicionarReservas(String nomeHospede, int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
         Hospedes hospedeselecionado = null;
+
         for(Hospedes hospedes : hospedeslista){
             if(hospedes.getNome().equals(nomeHospede)){
                 hospedeselecionado = hospedes;
@@ -74,7 +77,7 @@ public class GerenciadorHotel {
             }
         }
         if(hospedeselecionado == null){
-            System.out.println("hospede" + nomeHospede + "nao encontrado");
+            System.out.println("hospede " + nomeHospede + " nao encontrado");
         }
 
         Quarto quartoselecionado = null;
@@ -86,16 +89,16 @@ public class GerenciadorHotel {
         }
 
         if(quartoselecionado == null){
-            System.out.println("quarto" + numeroQuarto + " nao encontrado");
+            System.out.println("quarto " + numeroQuarto + " nao encontrado");
         }
 
         if(quartoselecionado.reservar(dataEntrada, dataSaida)) {
             Reserva reserva = new Reserva(dataEntrada, dataSaida,hospedeselecionado, quartoselecionado);
             quartoselecionado.reservar(reserva);
             reservaslista.add(reserva);
-            System.out.println("Reserva para" + hospedeselecionado + "criada com sucesso!");
+            System.out.println("Reserva para " + hospedeselecionado + " criada com sucesso!");
         } else {
-            System.out.println("O quarto" + numeroQuarto + " não está disponível");
+            System.out.println("O quarto " + numeroQuarto + " não está disponível");
         }
 
     }

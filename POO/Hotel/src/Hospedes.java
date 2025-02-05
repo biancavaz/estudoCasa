@@ -42,9 +42,9 @@ public class Hospedes {
 
     @Override
     public String toString() {
-        return "Hospedes" +
-                "nome: " + nome +
-                "cpf: " + cpf +
-                "telefone: " + telefone;
+        System.out.println("\nHospedes");
+        return "\nnome: " + nome +
+                "\ncpf: " + cpf +
+                "\ntelefone: " + telefone;
     }
 }

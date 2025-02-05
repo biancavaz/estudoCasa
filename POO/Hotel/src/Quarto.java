@@ -7,7 +7,7 @@ public class Quarto {
     private int numero;
     private String tipo;
     private double precoDiaria;
-    private boolean disponivel;
+    private boolean disponivel = true;
     private List<Reserva> reservas = new ArrayList();
 
     public Quarto(int numero, String tipo, double precoDiaria) {
@@ -26,9 +26,11 @@ public class Quarto {
         for (Reserva reserva : reservas){
             if(dataEntrada.isBefore(reserva.getDataSaida()) && dataSaida.isAfter(reserva.getDataEntrada()) ||
                     (dataEntrada.isEqual(reserva.getDataEntrada())) || (dataSaida.isEqual(reserva.getDataSaida()))) {
+                disponivel = false;
                 return false;
             }
         }
+        disponivel = true;
         return true;
     }
 
@@ -38,8 +40,8 @@ public class Quarto {
 
     @Override
     public String toString() {
-        return "Quarto: " +
-                "disponivel: " + (disponivel? "sim" : "não") +
+        System.out.println("QUARTOS");
+        return "\ndisponivel: " + (disponivel? "sim" : "não") +
                 "\nnumero: " + numero +
                 "\ntipo: " + tipo +
                 "\nprecoDiaria: " + precoDiaria;

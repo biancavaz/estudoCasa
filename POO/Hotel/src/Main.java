@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -188,18 +190,24 @@ public class Main {
 
         System.out.println("Informe o nome do hospede: ");
         String nome = sc.next();
+       //reserva.setHospedes();
 
         System.out.println("Informe o numero do quarto: ");
         int numero = sc.nextInt();
+        //reserva.setQuarto();
 
         System.out.print("Digite a data de entrada (formato: YYYY-MM-DD): ");
-        String entrada = sc.nextLine();
+        String entrada = sc.next();
+
         System.out.print("Digite a data de saída (formato: YYYY-MM-DD): ");
-        String saida = sc.nextLine();
+        String saida = sc.next();
 
         // Converter as datas para LocalDate
         LocalDate dataEntrada = LocalDate.parse(entrada);
         LocalDate dataSaida = LocalDate.parse(saida);
+
+        reserva.setDataEntrada(dataEntrada);
+        reserva.setDataSaida(dataSaida);
 
         GerenciadorHotel.adicionarReservas(nome, numero, dataEntrada, dataSaida);
 
@@ -223,20 +231,16 @@ public class Main {
             }
             case 2: {
                 exibirReservas();
+                break;
             }
             case 3: {
                 exibirValorTotaldeUmaReserva();
+                break;
             }
             case 4: {
                 inicio();
             }
         }
     }
-
-
-
-
-
-
 
 }

@@ -22,9 +22,11 @@ public class Reserva {
 
     public Reserva(){};
 
-    public void calcularValorTotal(){
+    public double calcularValorTotal(){
+        System.out.println(quarto);
         double diasHospedagem = ChronoUnit.DAYS.between(dataEntrada, dataSaida); // calcula a quantidade de dias entre as datas
         double total = diasHospedagem * quarto.getPrecoDiaria();
+        return total;
     }
 
     public void exibirDetalhes(){
@@ -47,12 +49,28 @@ public class Reserva {
         this.dataEntrada = dataEntrada;
     }
 
+    public Hospedes getHospedes() {
+        return hospedes;
+    }
+
+    public void setHospedes(Hospedes hospedes) {
+        this.hospedes = hospedes;
+    }
+
+    public Quarto getQuarto() {
+        return quarto;
+    }
+
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
+    }
+
     @Override
     public String toString() {
-        return "RESERVA" +
-                "data Entrada: " + dataEntrada +
-                "data Saida: " + dataSaida +
-                "hospedes: " + hospedes +
-                "quarto:" + quarto;
+        System.out.println("RESERVAS");
+        return "\nData Entrada: " + dataEntrada +
+                "\nData Saida: " + dataSaida +
+                "\nHospedes: " + hospedes +
+                "\nQuarto:" + quarto;
     }
 }
