@@ -64,10 +64,12 @@ public class GerenciadorHotel {
         }
     }
 
-    public static void buscarQuarto(){}
+//    public static void buscarQuarto(int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
+//
+//    }
 
     //RESERVAS
-    public static void adicionarReservas(String nomeHospede, int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
+    public static void adicionarReservas(String nomeHospede,int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
         Hospedes hospedeselecionado = null;
 
         for(Hospedes hospedes : hospedeslista){
@@ -100,7 +102,6 @@ public class GerenciadorHotel {
         } else {
             System.out.println("O quarto " + numeroQuarto + " não está disponível");
         }
-
     }
 
     //tem como deletar uma resereva?

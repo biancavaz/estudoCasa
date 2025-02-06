@@ -219,7 +219,10 @@ public class Main {
     }
 
     public static void exibirValorTotaldeUmaReserva() {
-        reserva.calcularValorTotal();
+        // pegar a reserva criada
+        System.out.println("Digite o codigo da reserva: ");
+        // e procurar a reserva pelo código
+
         /// n seei como fazer hehe
     }
 
