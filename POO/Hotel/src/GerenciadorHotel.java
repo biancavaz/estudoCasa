@@ -37,6 +37,7 @@ public class GerenciadorHotel {
         }
     }
 
+
     // QUARTOS
     public static void adicionarQuartos(Quarto quarto){
         quartoslista.add(quarto);
@@ -64,12 +65,10 @@ public class GerenciadorHotel {
         }
     }
 
-//    public static void buscarQuarto(int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
-//
-//    }
 
     //RESERVAS
-    public static void adicionarReservas(String nomeHospede,int numeroQuarto, LocalDate dataEntrada, LocalDate dataSaida){
+    public static void adicionarReservas(String nomeHospede,int numeroQuarto,
+                                         LocalDate dataEntrada, LocalDate dataSaida, int numeroReserva){
         Hospedes hospedeselecionado = null;
 
         for(Hospedes hospedes : hospedeslista){
@@ -95,7 +94,7 @@ public class GerenciadorHotel {
         }
 
         if(quartoselecionado.reservar(dataEntrada, dataSaida)) {
-            Reserva reserva = new Reserva(dataEntrada, dataSaida,hospedeselecionado, quartoselecionado);
+            Reserva reserva = new Reserva(dataEntrada, dataSaida, hospedeselecionado, quartoselecionado, numeroReserva);
             quartoselecionado.reservar(reserva);
             reservaslista.add(reserva);
             System.out.println("Reserva para " + hospedeselecionado + " criada com sucesso!");
@@ -104,11 +103,19 @@ public class GerenciadorHotel {
         }
     }
 
-    //tem como deletar uma resereva?
+
+    public static Reserva buscarReserva (int numeroReserva){
+        for(Reserva reserva : reservaslista){
+            if(reserva.getNumeroReserva() == numeroReserva){
+                return reserva;
+            }
+        }
+        return null;
+    }
 
     public static void mostrarReservas() {
         if(reservaslista.isEmpty()){
-            System.out.println("Nenhum reserva encontrado");
+            System.out.println("\nNenhuma reserva encontrado");
         } else {
             for(Reserva reserva : reservaslista) {
                 System.out.println(reserva.toString());

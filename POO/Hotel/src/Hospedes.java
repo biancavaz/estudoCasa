@@ -12,10 +12,6 @@ public class Hospedes {
 
     public Hospedes(){};
 
-    public void exibirDetalhes(){
-        System.out.println(this.toString());
-    }
-
     public String getNome() {
         return nome;
     }

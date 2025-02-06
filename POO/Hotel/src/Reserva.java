@@ -7,12 +7,15 @@ public class Reserva {
     private LocalDate dataSaida;
     private Hospedes hospedes;
     private Quarto quarto;
+    private int numeroDeNoites;
+    private int numeroReserva;
 
-    public Reserva(LocalDate dataEntrada, LocalDate dataSaida, Hospedes hospedes, Quarto quarto) {
+    public Reserva(LocalDate dataEntrada, LocalDate dataSaida, Hospedes hospedes, Quarto quarto, int numeroReserva) {
         this.dataEntrada = dataEntrada;
         this.dataSaida =  dataSaida;
         this.hospedes = hospedes;
         this.quarto = quarto;
+        this.numeroReserva = numeroReserva;
     }
 
     public Reserva (Hospedes hospedes, Quarto quarto) {
@@ -22,15 +25,12 @@ public class Reserva {
 
     public Reserva(){};
 
-    public double calcularValorTotal(){
-        System.out.println(quarto);
-        double diasHospedagem = ChronoUnit.DAYS.between(dataEntrada, dataSaida); // calcula a quantidade de dias entre as datas
-        double total = diasHospedagem * quarto.getPrecoDiaria();
-        return total;
+    public Long calcularDias() {
+        return ChronoUnit.DAYS.between(dataEntrada, dataSaida); // calcula a quantidade de dias entre as datas
     }
 
-    public void exibirDetalhes(){
-        System.out.println(this.toString());
+    public double calcularPrecoPorReserva(){
+        return calcularDias() * quarto.getPrecoDiaria();
     }
 
     public LocalDate getDataSaida() {
@@ -65,10 +65,27 @@ public class Reserva {
         this.quarto = quarto;
     }
 
+    public int getNumeroDeNoites() {
+        return numeroDeNoites;
+    }
+
+    public void setNumeroDeNoites(int numeroDeNoites) {
+        this.numeroDeNoites = numeroDeNoites;
+    }
+
+    public int getNumeroReserva() {
+        return numeroReserva;
+    }
+
+    public void setNumeroReserva(int numeroReserva) {
+        this.numeroReserva = numeroReserva;
+    }
+
     @Override
     public String toString() {
         System.out.println("RESERVAS");
-        return "\nData Entrada: " + dataEntrada +
+        return "\nNumero Reserva: " + numeroReserva +
+                "\nData Entrada: " + dataEntrada +
                 "\nData Saida: " + dataSaida +
                 "\nHospedes: " + hospedes +
                 "\nQuarto:" + quarto;

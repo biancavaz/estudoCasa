@@ -188,13 +188,14 @@ public class Main {
 
         System.out.println("RESERVA");
 
+        System.out.println("Informe o número da reserva:");
+        reserva.setNumeroReserva(sc.nextInt());
+
         System.out.println("Informe o nome do hospede: ");
         String nome = sc.next();
-       //reserva.setHospedes();
 
         System.out.println("Informe o numero do quarto: ");
         int numero = sc.nextInt();
-        //reserva.setQuarto();
 
         System.out.print("Digite a data de entrada (formato: YYYY-MM-DD): ");
         String entrada = sc.next();
@@ -209,8 +210,7 @@ public class Main {
         reserva.setDataEntrada(dataEntrada);
         reserva.setDataSaida(dataSaida);
 
-        GerenciadorHotel.adicionarReservas(nome, numero, dataEntrada, dataSaida);
-
+        GerenciadorHotel.adicionarReservas(nome, numero, dataEntrada, dataSaida, reserva.getNumeroReserva());
 
     }
 
@@ -220,10 +220,16 @@ public class Main {
 
     public static void exibirValorTotaldeUmaReserva() {
         // pegar a reserva criada
-        System.out.println("Digite o codigo da reserva: ");
-        // e procurar a reserva pelo código
+        System.out.println("Digite o número da reserva: ");
+        String numero = sc.next();
 
-        /// n seei como fazer hehe
+        Reserva reservaEscolhida = GerenciadorHotel.buscarReserva(Integer.parseInt(numero));
+
+        if(reservaEscolhida != null){
+            System.out.println("Valor total da reserva R$: " + reservaEscolhida.calcularPrecoPorReserva());
+        } else {
+            System.out.println("Reserva" + reservaEscolhida +" não encontrada");
+        }
     }
 
     public static void exibirOpcoesReservas(int opcao) {

@@ -18,8 +18,12 @@ public class Quarto {
 
     public Quarto(){};
 
-    public void exibirDetalhes (){
-        System.out.println(this.toString());
+    public void exibirDetalhesReserva (){
+        System.out.println("Quarto");
+        System.out.println("Numero do quarto: " + numero);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Preco diaria: " + precoDiaria);
+        System.out.println("Disponibilidade" + (disponivel? "sim" : "não"));
     }
 
     public boolean reservar(LocalDate dataEntrada, LocalDate dataSaida ){
