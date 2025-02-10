@@ -28,6 +28,7 @@ public class GerenciadorHotel {
     }
 
     public static void mostrarHospedes() {
+        System.out.println(hospedeslista);
         if(hospedeslista.isEmpty()){
             System.out.println("Nenhum hospede encontrado");
         } else {
@@ -97,7 +98,7 @@ public class GerenciadorHotel {
             Reserva reserva = new Reserva(dataEntrada, dataSaida, hospedeselecionado, quartoselecionado, numeroReserva);
             quartoselecionado.reservar(reserva);
             reservaslista.add(reserva);
-            System.out.println("Reserva para " + hospedeselecionado + " criada com sucesso!");
+            System.out.println("\uD83D\uDCC5 Reserva criada com sucesso!");
         } else {
             System.out.println("O quarto " + numeroQuarto + " não está disponível");
         }

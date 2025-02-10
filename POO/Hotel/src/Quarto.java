@@ -30,11 +30,11 @@ public class Quarto {
         for (Reserva reserva : reservas){
             if(dataEntrada.isBefore(reserva.getDataSaida()) && dataSaida.isAfter(reserva.getDataEntrada()) ||
                     (dataEntrada.isEqual(reserva.getDataEntrada())) || (dataSaida.isEqual(reserva.getDataSaida()))) {
-                disponivel = false;
+                disponivel = true;
                 return false;
             }
         }
-        disponivel = true;
+        disponivel = false;
         return true;
     }
 
@@ -44,8 +44,8 @@ public class Quarto {
 
     @Override
     public String toString() {
-        System.out.println("QUARTOS");
-        return "\ndisponivel: " + (disponivel? "sim" : "não") +
+        return "Quartos" +
+                "\ndisponivel: " + (disponivel? "sim" : "não") +
                 "\nnumero: " + numero +
                 "\ntipo: " + tipo +
                 "\nprecoDiaria: " + precoDiaria;

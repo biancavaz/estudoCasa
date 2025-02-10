@@ -1,18 +1,18 @@
 import org.w3c.dom.Text;
 
+import javax.swing.*;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
 
-    private static Hospedes hospedes = new Hospedes();
     public static Reserva reserva = new Reserva();
-    public static Quarto quarto = new Quarto();
     public static Scanner sc = new Scanner(System.in);
 
 
     public static void main(String[] args) {
-        System.out.println("BEM VINDO AO HOTEL HEMMOS");
+        System.out.println("\n\uD83C\uDFE8 BEM VINDO AO HOTEL HEMMOS \uD83C\uDFE8");
+
         inicio();
 
     }
@@ -28,10 +28,11 @@ public class Main {
 
     public static void opcoesMenu(){
         System.out.println("""
-                1 - HOSPEDES
-                2 - QUARTOS
-                3 - FAZER RESERVAS
-                4 - SAIR
+                
+                1 - 👩🏼‍🦰 HOSPEDES 
+                2 - 🛏️ QUARTOS
+                3 - 📅 FAZER RESERVAS
+                4 - 📤 SAIR
                 """);
 
     }
@@ -104,15 +105,16 @@ public class Main {
         System.out.println("CADASTRO DE HOSPEDES");
 
         System.out.println("Nome: ");
-        hospedes.setNome(sc.next());
+        String nome = sc.next();
 
         System.out.println("Cpf: ");
-        hospedes.setCpf(sc.nextInt());
+        int cpf = sc.nextInt();
 
         System.out.println("Telefone: ");
-        hospedes.setTelefone(sc.next());
+        String telefone = sc.next();
 
-        GerenciadorHotel.adicionarHospedes(hospedes);
+        System.out.println("\n\uD83D\uDCDD Hóspede cadastrado! \n");
+        GerenciadorHotel.adicionarHospedes(new Hospedes(nome, cpf, telefone));
     }
 
     public static void removerHospedes() {
@@ -159,15 +161,17 @@ public class Main {
         System.out.println(" CADASTRAR QUARTOS");
 
         System.out.println("Numero do quarto: ");
-        quarto.setNumero(sc.nextInt());
+        int numero = sc.nextInt();
 
         System.out.println("Tipo (simples, duplo, luxo): ");
-        quarto.setTipo(sc.next());
+        String tipo = sc.next();
 
         System.out.println("Preço da diária: ");
-        quarto.setPrecoDiaria(sc.nextDouble());
+        double precoDiaria = sc.nextDouble();
 
-        GerenciadorHotel.adicionarQuartos(quarto);
+        System.out.println("Quarto cadastrado! \uD83D\uDECF\uFE0F");
+
+        GerenciadorHotel.adicionarQuartos(new Quarto(numero, tipo, precoDiaria));
 
     }
 
@@ -209,6 +213,7 @@ public class Main {
 
         reserva.setDataEntrada(dataEntrada);
         reserva.setDataSaida(dataSaida);
+
 
         GerenciadorHotel.adicionarReservas(nome, numero, dataEntrada, dataSaida, reserva.getNumeroReserva());
 

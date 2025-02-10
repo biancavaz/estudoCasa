@@ -36,10 +36,11 @@ public class Hospedes {
         this.telefone = telefone;
     }
 
+
     @Override
     public String toString() {
-        System.out.println("\nHospedes");
-        return "\nnome: " + nome +
+        return "Hóspedes" +
+                "\nnome: " + nome +
                 "\ncpf: " + cpf +
                 "\ntelefone: " + telefone;
     }

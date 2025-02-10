@@ -83,11 +83,13 @@ public class Reserva {
 
     @Override
     public String toString() {
+        System.out.println("------------");
         System.out.println("RESERVAS");
         return "\nNumero Reserva: " + numeroReserva +
                 "\nData Entrada: " + dataEntrada +
                 "\nData Saida: " + dataSaida +
-                "\nHospedes: " + hospedes +
-                "\nQuarto:" + quarto;
+                "\n" + hospedes +
+                "\n" + quarto;
+
     }
 }
